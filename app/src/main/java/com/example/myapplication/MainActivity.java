@@ -1,0 +1,29 @@
+package com.example.myapplication;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        setTitle("동요목록");
+
+    }
+
+    public void play(View v){
+        int id = v.getId();
+        LinearLayout layout = findViewById(id);
+        String tag = (String) layout.getTag();
+        Intent intent = new Intent(this, Music.class);
+        intent.putExtra("intent_tag",tag);
+        startActivity(intent);
+
+    }
+}
